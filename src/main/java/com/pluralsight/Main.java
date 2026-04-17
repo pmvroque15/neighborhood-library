@@ -41,7 +41,7 @@ public class Main {
                         break;
                     case "2":
                         //checked out books menu
-                        showCheckedOutMenu();
+                        showCheckedOutMenu(books);
                         break;
                     case "3":
                         //exit
@@ -84,6 +84,45 @@ public class Main {
                 books[id].isCheckedOut = true;
                 books[id].checkedOUtTo = name;
 
+
+                break;
+            case "2":
+                //exit
+                break;
+            default:
+                System.err.println("Invalid Selection");
+
+        }
+    }
+
+    public static void showCheckedOutMenu(Book[] books){
+        System.out.println("========Available books===========");
+        System.out.println("ID\tISBN\t\tTitle");
+        for (Book currentBook : books) {
+            if (currentBook.isCheckedOut) {
+                System.out.print(currentBook.id + " ");
+                System.out.print(currentBook.isbn + " ");
+                System.out.println(currentBook.title);
+                System.out.println(currentBook.checkedOUtTo);
+            }
+        }
+        String prompt = """
+            1. Check in a book
+            2. Exit to menu
+            """;
+        System.out.println(" ");
+        System.out.println(prompt);
+        String userSelection = scanner.nextLine();
+
+        switch (userSelection) {
+            case "1":
+                //check out book
+                System.out.println("Enter the book ID number of the book you want to check in: ");
+                userSelection = scanner.nextLine();
+                int id = Integer.parseInt(userSelection);
+
+                books[id].isCheckedOut = false;
+                books[id].checkedOUtTo = "";
 
                 break;
             case "2":
