@@ -15,9 +15,9 @@ public class Main {
             books[4] = new Book(4, "978-0307277671", "The Road", false, "");
             books[5] = new Book(5, "978-0743273565", "The Great Gatsby", false, "");
             books[6] = new Book(6, "978-1501128035", "It", false, "");
-            books[7] = new Book(7, "978-0553386790", "A Game of Thrones", false, "");
+            books[7] = new Book(7, "978-0553386790", "A Game of Thrones", true, "");
             books[8] = new Book(8, "978-0060850524", "Brave New World", false, "");
-            books[9] = new Book(9, "978-1594633669", "The Kite Runner", false, "");
+            books[9] = new Book(9, "978-1594633669", "The Kite Runner", true, "");
 
             boolean keepGoing = true;
             do {
@@ -102,7 +102,7 @@ public class Main {
             if (currentBook.isCheckedOut) {
                 System.out.print(currentBook.id + " ");
                 System.out.print(currentBook.isbn + " ");
-                System.out.println(currentBook.title);
+                System.out.print(currentBook.title);
                 System.out.println(currentBook.checkedOUtTo);
             }
         }
@@ -132,10 +132,6 @@ public class Main {
                 System.err.println("Invalid Selection");
 
         }
-    }
-
-    private static void showCheckedOutMenu() {
-
     }
 
 }
