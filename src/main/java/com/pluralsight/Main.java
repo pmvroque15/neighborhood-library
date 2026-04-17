@@ -102,7 +102,7 @@ public class Main {
             if (currentBook.isCheckedOut) {
                 System.out.print(currentBook.id + " ");
                 System.out.print(currentBook.isbn + " ");
-                System.out.print(currentBook.title);
+                System.out.print(currentBook.title + " ");
                 System.out.println(currentBook.checkedOUtTo);
             }
         }
