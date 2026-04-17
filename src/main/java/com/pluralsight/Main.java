@@ -19,39 +19,41 @@ public class Main {
             books[8] = new Book(8, "978-0060850524", "Brave New World", false, "");
             books[9] = new Book(9, "978-1594633669", "The Kite Runner", false, "");
 
+            boolean keepGoing = true;
+            do {
+                String mainPrompt = """
+                        =======MAIN MENU=======
+                        1. Show available books
+                        2. Show checked out books
+                        3. Exit this application
+                        =======================
+                        
+                        Please enter you selection.
+                        """;
 
-        String mainPrompt = """
-                =======MAIN MENU=======
-                1. Show available books
-                2. Show checked out books
-                3. Exit this application
-                =======================
-                
-                Please enter you selection.
-                """;
+                System.out.println(mainPrompt);
+                String userSelection = scanner.nextLine();
 
-        System.out.println(mainPrompt);
-        String userSelection = scanner.nextLine();
-
-        switch (userSelection) {
-            case "1":
-                //available book menu
-                showAvailableMenu(books);
-                break;
-            case "2":
-                //checked out books menu
-                showCheckedOutMenu();
-                break;
-            case "3":
-                //exit
-                break;
-            default:
-                System.err.println("Invalid Selection");
-
-        }
+                switch (userSelection) {
+                    case "1":
+                        //available book menu
+                        showAvailableMenu(books);
+                        break;
+                    case "2":
+                        //checked out books menu
+                        showCheckedOutMenu();
+                        break;
+                    case "3":
+                        //exit
+                        keepGoing = false;
+                        break;
+                    default:
+                        System.err.println("Invalid Selection");
+                }
+            } while (keepGoing);
     }
 
-    private static void showAvailableMenu(Book[] books){
+    public static void showAvailableMenu(Book[] books){
         System.out.println("========Available books===========");
         System.out.println("ID\tISBN\t\tTitle");
         for (Book currentBook : books) {
@@ -82,7 +84,7 @@ public class Main {
                 books[id].isCheckedOut = true;
                 books[id].checkedOUtTo = name;
 
-//                books[id].checkOut("Pat");
+
                 break;
             case "2":
                 //exit
@@ -93,10 +95,6 @@ public class Main {
         }
     }
 
-    public Book[] checkOut(Book[] books) {
-        this.isCheckedOut = true;
-        this.checkedOutTo = name;
-    }
     private static void showCheckedOutMenu() {
 
     }
